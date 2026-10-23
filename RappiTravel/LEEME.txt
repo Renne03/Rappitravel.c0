@@ -1,0 +1,23 @@
+RAPPITRAVEL - PUBLICAR EN GITHUB PAGES
+
+ARCHIVOS
+- index.html (archivo principal; debe quedar en la raíz del repositorio)
+- css/estilos.css
+- js/script.js
+
+PASOS
+1. Descomprime este ZIP en tu computador.
+2. Abre tu repositorio de GitHub.
+3. Pulsa Add file > Upload files.
+4. Sube index.html y las carpetas css y js (no subas una carpeta exterior que contenga todo).
+5. Haz Commit changes.
+6. Entra a Settings > Pages.
+7. En Build and deployment selecciona Deploy from a branch.
+8. Selecciona la rama main y la carpeta /(root), y guarda.
+9. Espera a que termine el despliegue y abre la URL que aparece en Settings > Pages.
+
+IMPORTANTE
+- Conserva exactamente los nombres index.html, css/estilos.css y js/script.js.
+- GitHub distingue mayúsculas y minúsculas en nombres y rutas.
+- Las fotografías y las fuentes se cargan desde servicios externos; para verlas se necesita conexión a Internet.
+- Los favoritos y viajes se guardan solo durante la sesión actual; al recargar, se reinician.

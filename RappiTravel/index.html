@@ -1,0 +1,140 @@
+<!-- Indica que este archivo usa HTML5. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RappiTravel: explora destinos y organiza tus próximos viajes.">
+  <title>RappiTravel | Planifica, explora, viaja</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Barra superior con el logo y el menú de navegación. -->
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="RappiTravel, inicio">
+      <span class="brand-icon">✈</span><span>Rappi<span class="brand-accent">Travel</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
+      <a href="#explorar" class="nav-link" data-section="explorar">Explorar</a>
+      <a href="#favoritos" class="nav-link" data-section="favoritos">Favoritos <span id="favoriteNavCount" class="nav-count">0</span></a>
+      <a href="#itinerario" class="nav-link" data-section="itinerario">Itinerario</a>
+      <a href="#perfil" class="nav-link" data-section="perfil">Perfil</a>
+    </nav>
+    <button class="profile-chip" id="profileShortcut"><span class="avatar">P</span><span>Mi perfil</span></button>
+  </header>
+
+  <!-- Aquí empieza el contenido principal de la página. -->
+  <main>
+    <!-- Presentación inicial de RappiTravel. -->
+    <section id="inicio" class="page-section hero-section">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> TU PRÓXIMA AVENTURA EMPIEZA AQUÍ</span>
+        <h1>El mundo te espera.<br><span>Vamos a explorarlo.</span></h1>
+        <p>Encuentra destinos increíbles, guarda tus favoritos y organiza cada detalle de tu próximo viaje en un solo lugar.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#explorar">Explorar destinos <span>↗</span></a>
+          <a class="btn btn-secondary" href="#itinerario">Planificar viaje</a>
+        </div>
+        <div class="hero-proof">
+          <div class="mini-avatars"><span>J</span><span>M</span><span>A</span></div>
+          <p><strong>Tu viaje, a tu manera</strong><br><small>Inspírate y empieza a planificar</small></p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image" role="img" aria-label="Paisaje tropical de playa y mar"></div>
+        <div class="floating-card weather-card"><span class="weather-icon">☀</span><div><strong>Cartagena</strong><small>27° · Soleado</small></div></div>
+        <div class="floating-card trip-card"><span class="trip-card-icon">⌖</span><div><small>Es hora de viajar</small><strong>Descubre algo nuevo</strong></div></div>
+      </div>
+    </section>
+
+    <section class="page-section search-panel" aria-label="Buscar destinos">
+      <div class="search-heading"><span class="search-symbol">⌕</span><div><h2>¿A dónde quieres ir?</h2><p>Encuentra tu próximo destino favorito</p></div></div>
+      <form id="searchForm" class="search-form">
+        <label class="search-field"><span>Destino</span><input id="destinationSearch" type="search" placeholder="Ej. Cartagena, Medellín..." autocomplete="off"></label>
+        <label class="search-field"><span>Tipo de viaje</span><select id="regionFilter"><option value="todos">Todos los destinos</option><option value="playa">Playa</option><option value="ciudad">Ciudad</option><option value="naturaleza">Naturaleza</option></select></label>
+        <button class="btn btn-primary search-button" type="submit">Buscar destinos <span>⌕</span></button>
+      </form>
+    </section>
+
+    <!-- Sección para buscar y ver destinos turísticos. -->
+    <section id="explorar" class="page-section content-section">
+      <div class="section-heading"><div><span class="eyebrow">INSPÍRATE</span><h2>Destinos populares</h2><p>Lugares que vale la pena descubrir</p></div><span class="result-count" id="resultCount">6 destinos</span></div>
+      <div class="destination-grid" id="destinationGrid">
+        <article class="destination-card" data-name="Cartagena" data-region="playa">
+          <div class="destination-photo photo-cartagena"><span class="destination-tag">Playa</span><button class="favorite-btn" data-favorite="Cartagena" aria-label="Guardar Cartagena en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Cartagena</h3><p>Colombia · Caribe</p></div><span class="temperature">☀ 30°</span></div><p class="destination-description">Murallas históricas, calles coloridas y atardeceres frente al mar.</p><div class="destination-footer"><span class="country-label">🇨🇴 Colombia</span><button class="text-button detail-btn" data-destination="Cartagena">Ver destino ↗</button></div></div>
+        </article>
+        <article class="destination-card" data-name="Medellín" data-region="ciudad">
+          <div class="destination-photo photo-medellin"><span class="destination-tag">Ciudad</span><button class="favorite-btn" data-favorite="Medellín" aria-label="Guardar Medellín en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Medellín</h3><p>Colombia · Antioquia</p></div><span class="temperature">☁ 24°</span></div><p class="destination-description">Cultura, gastronomía y montañas en la ciudad de la eterna primavera.</p><div class="destination-footer"><span class="country-label">🇨🇴 Colombia</span><button class="text-button detail-btn" data-destination="Medellín">Ver destino ↗</button></div></div>
+        </article>
+        <article class="destination-card" data-name="Santa Marta" data-region="playa">
+          <div class="destination-photo photo-santamarta"><span class="destination-tag">Playa</span><button class="favorite-btn" data-favorite="Santa Marta" aria-label="Guardar Santa Marta en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Santa Marta</h3><p>Colombia · Magdalena</p></div><span class="temperature">☀ 29°</span></div><p class="destination-description">Playas, naturaleza y acceso a los paisajes del Parque Tayrona.</p><div class="destination-footer"><span class="country-label">🇨🇴 Colombia</span><button class="text-button detail-btn" data-destination="Santa Marta">Ver destino ↗</button></div></div>
+        </article>
+        <article class="destination-card" data-name="Eje Cafetero" data-region="naturaleza">
+          <div class="destination-photo photo-cafetero"><span class="destination-tag">Naturaleza</span><button class="favorite-btn" data-favorite="Eje Cafetero" aria-label="Guardar Eje Cafetero en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Eje Cafetero</h3><p>Colombia · Región Andina</p></div><span class="temperature">☁ 21°</span></div><p class="destination-description">Montañas verdes, fincas cafeteras y pueblos llenos de encanto.</p><div class="destination-footer"><span class="country-label">🇨🇴 Colombia</span><button class="text-button detail-btn" data-destination="Eje Cafetero">Ver destino ↗</button></div></div>
+        </article>
+        <article class="destination-card" data-name="Ciudad de México" data-region="ciudad">
+          <div class="destination-photo photo-mexico"><span class="destination-tag">Ciudad</span><button class="favorite-btn" data-favorite="Ciudad de México" aria-label="Guardar Ciudad de México en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Ciudad de México</h3><p>México · Norteamérica</p></div><span class="temperature">☀ 23°</span></div><p class="destination-description">Museos, historia, arquitectura y una gastronomía inolvidable.</p><div class="destination-footer"><span class="country-label">🇲🇽 México</span><button class="text-button detail-btn" data-destination="Ciudad de México">Ver destino ↗</button></div></div>
+        </article>
+        <article class="destination-card" data-name="Cusco" data-region="naturaleza">
+          <div class="destination-photo photo-cusco"><span class="destination-tag">Aventura</span><button class="favorite-btn" data-favorite="Cusco" aria-label="Guardar Cusco en favoritos" aria-pressed="false">♡</button></div>
+          <div class="destination-info"><div class="destination-title"><div><h3>Cusco</h3><p>Perú · Andes</p></div><span class="temperature">☁ 16°</span></div><p class="destination-description">Historia ancestral, paisajes andinos y caminos llenos de aventura.</p><div class="destination-footer"><span class="country-label">🇵🇪 Perú</span><button class="text-button detail-btn" data-destination="Cusco">Ver destino ↗</button></div></div>
+        </article>
+      </div>
+      <p id="emptySearch" class="empty-state hidden">No encontramos destinos con esos criterios. Prueba otra búsqueda.</p>
+    </section>
+
+    <!-- Aquí se muestran los destinos guardados como favoritos. -->
+    <section id="favoritos" class="page-section content-section soft-section">
+      <div class="section-heading"><div><span class="eyebrow">TU LISTA PERSONAL</span><h2>Mis favoritos <span class="inline-count" id="favoriteCount">0</span></h2><p>Guarda los lugares que quieres conocer</p></div></div>
+      <div id="favoritesList" class="favorites-list"><div class="empty-card"><span class="empty-icon">♡</span><h3>Aún no tienes favoritos</h3><p>Presiona el corazón de un destino para guardarlo aquí.</p><a class="text-button" href="#explorar">Explorar destinos ↗</a></div></div>
+    </section>
+
+    <!-- Formulario para crear y guardar planes de viaje. -->
+    <section id="itinerario" class="page-section content-section">
+      <div class="section-heading"><div><span class="eyebrow">ORGANIZA TU AVENTURA</span><h2>Planifica tu viaje</h2><p>Completa los datos y empieza a construir tu itinerario</p></div></div>
+      <div class="planner-layout">
+        <form id="tripForm" class="planner-form">
+          <div class="form-grid">
+            <label class="form-field full-width"><span>Nombre del viaje *</span><input id="tripName" name="tripName" required placeholder="Ej. Vacaciones soñadas"></label>
+            <label class="form-field"><span>Destino *</span><input id="tripDestination" name="tripDestination" required placeholder="¿A dónde vas?"></label>
+            <label class="form-field"><span>Número de viajeros *</span><input id="travelers" name="travelers" type="number" min="1" max="30" value="2" required></label>
+            <label class="form-field"><span>Fecha de salida *</span><input id="startDate" name="startDate" type="date" required></label>
+            <label class="form-field"><span>Fecha de regreso *</span><input id="endDate" name="endDate" type="date" required></label>
+            <label class="form-field"><span>Presupuesto estimado (COP)</span><input id="budget" name="budget" type="number" min="0" placeholder="Ej. 1500000"></label>
+            <label class="form-field"><span>Actividad principal</span><select id="activity"><option>Explorar la ciudad</option><option>Descansar en la playa</option><option>Aventura y naturaleza</option><option>Gastronomía y cultura</option></select></label>
+            <label class="form-field full-width"><span>Comentarios</span><textarea id="comments" rows="3" placeholder="Ideas, reservas o lugares que quieres visitar..."></textarea></label>
+          </div>
+          <p class="form-message" id="tripMessage" aria-live="polite"></p>
+          <button class="btn btn-primary" type="submit">Guardar mi viaje <span>↗</span></button>
+        </form>
+        <aside class="planner-aside"><div class="planner-illustration">✈</div><span class="eyebrow">UN VIAJE BIEN PLANEADO</span><h3>Todo empieza con una idea.</h3><p>Guarda los detalles importantes de tu aventura y tenlos a mano mientras organizas tu viaje.</p><div class="planner-tip"><span>✓</span> Elige tus fechas</div><div class="planner-tip"><span>✓</span> Define tu presupuesto</div><div class="planner-tip"><span>✓</span> Añade tus actividades</div></aside>
+      </div>
+      <div class="saved-trips-wrap"><h3>Mis viajes guardados</h3><div id="savedTrips" class="saved-trips"><p class="muted-text">Todavía no has guardado ningún viaje.</p></div></div>
+    </section>
+
+    <!-- Información y preferencias del perfil del usuario. -->
+    <section id="perfil" class="page-section content-section soft-section">
+      <div class="section-heading"><div><span class="eyebrow">TU ESPACIO</span><h2>Mi perfil</h2><p>Consulta tu actividad en RappiTravel</p></div></div>
+      <div class="profile-layout"><div class="profile-card"><div class="profile-avatar">P</div><h3>Pedro Martinez</h3><p>Pedro.Martinez@email.com</p><span class="profile-badge"></span></div><div class="profile-stats"><div class="stat-card"><span class="stat-icon">✈</span><strong id="tripStat">0</strong><small>Viajes planeados</small></div><div class="stat-card"><span class="stat-icon">♡</span><strong id="favStat">0</strong><small>Destinos favoritos</small></div><div class="stat-card"><span class="stat-icon">⌖</span><strong>6</strong><small>Destinos para descubrir</small></div><div class="settings-card"><h3>Preferencias</h3><p>Recibe recomendaciones y organiza tus destinos a tu manera.</p><label class="setting-row"><span>Mostrar consejos de viaje</span><input type="checkbox" id="tipsToggle" checked></label><label class="setting-row"><span>Recordar mis preferencias</span><input type="checkbox" id="prefsToggle" checked></label></div></div></div>
+    </section>
+  </main>
+
+  <!-- Pie de página con información final del sitio. -->
+  <footer class="footer"><a class="brand" href="#inicio"><span class="brand-icon">✈</span><span>Rappi<span class="brand-accent">Travel</span></span></a><p>Planifica · Explora · Viaja</p><small>© 2026 RappiTravel · Tu próxima aventura empieza aquí.</small></footer>
+
+  <dialog id="destinationDialog" class="destination-dialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Cerrar">×</button>
+    <div class="dialog-photo" id="dialogPhoto"></div><div class="dialog-content"><span class="eyebrow">DESCUBRE EL DESTINO</span><h2 id="dialogTitle">Destino</h2><p id="dialogDescription"></p><div class="dialog-facts" id="dialogFacts"></div><div class="dialog-actions"><button class="btn btn-primary" id="addToTrip">Añadir al itinerario</button><button class="btn btn-secondary" id="dialogFavorite">♡ Guardar favorito</button></div></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <!-- Carga el JavaScript que hace funcionar los botones y formularios. -->
+  <script src="js/script.js"></script>
+</body>
+</html>
